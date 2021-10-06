@@ -13,7 +13,7 @@ class ImageAdapter (val _images : Array<Item>, val _click : View.OnClickListener
     val images = _images
     val click = _click
 
-    class ViewHolder(_view : ImageView, ocl : View.OnClickListener)
+    class ViewHolder(_view : ImageView, ocl : View.OnClickListener) : RecyclerView.ViewHolder(_view)
     {
         val imageView = _view.apply { setOnClickListener(ocl)}
     }
@@ -25,7 +25,7 @@ class ImageAdapter (val _images : Array<Item>, val _click : View.OnClickListener
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int)
     {
-        holder.imageView.setImageResource(images[position] .resourceID)
+        holder.imageView.setImageResource(images[position].resourceID)
     }
 
     override fun getItemCount(): Int
